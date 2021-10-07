@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-const address = "localhost:8888"
+const address = "127.0.0.1:8888"
 
 func capitalized(conn net.Conn) {
 	reader := bufio.NewReader(conn)
@@ -18,8 +18,6 @@ func capitalized(conn net.Conn) {
 		return
 	}
 	fmt.Print("Received data: %s\n", data)
-
-	//writin the data
 	conn.Write([]byte(strings.ToUpper(data)))
 	//closing the connection
 	conn.Close()
